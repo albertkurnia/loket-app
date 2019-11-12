@@ -2,6 +2,8 @@ package query
 
 import (
 	"database/sql"
+
+	"loket-app/modules/location/model"
 )
 
 type locationQueryImpl struct {
@@ -17,4 +19,6 @@ func NewLocationQuery(dbWrite, dbRead *sql.DB) LocationQuery {
 }
 
 type LocationQuery interface {
+	InsertLocation(data *model.CreateLocationReq) (*model.Location, error)
+	LoadLocationByID(id uint64) (*model.Location, error)
 }
