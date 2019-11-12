@@ -1,6 +1,7 @@
 package usecase
 
 import (
+	"loket-app/modules/location/model"
 	"loket-app/modules/location/query"
 )
 
@@ -15,4 +16,6 @@ func NewLocationUseCase(locationQuery query.LocationQuery) LocationUseCase {
 }
 
 type LocationUseCase interface {
+	CreateLocation(data *model.CreateLocationReq) (*model.Location, error)
+	LoadLocationByID(id uint64) (*model.Location, error)
 }
