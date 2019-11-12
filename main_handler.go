@@ -44,9 +44,9 @@ func MakeHandler() *Service {
 	locationQuery := locationQ.NewLocationQuery(dbMaster, dbSlave)
 	txQuery := txQ.NewTransactionQuery(dbMaster, dbSlave)
 
-	eventUsecase := eventUC.NewEventUseCase(eventQuery)
 	locationUsecase := locationUC.NewLocationUseCase(locationQuery)
-	txUsecase := txUC.NewTransactionUseCase(txQuery)
+	eventUsecase := eventUC.NewEventUseCase(eventQuery, locationUsecase)
+	txUsecase := txUC.NewTransactionUseCase(txQuery, eventUsecase)
 
 	return &Service{
 		EventUseCase:       eventUsecase,
