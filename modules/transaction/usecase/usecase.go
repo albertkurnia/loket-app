@@ -64,8 +64,8 @@ func (impl *transactionUseCaseImpl) PurchaseTicket(data *model.PurchaseTicketReq
 			return 0, err
 		}
 
-		remainingTicket := ticket.Quantity - totalTicket
-		if remainingTicket < 1 || remainingTicket < ticket.Quantity {
+		remainingTicket := int64(ticket.Quantity) - int64(totalTicket)
+		if remainingTicket < 1 {
 			err := fmt.Errorf("%s ticket is not available", ticket.Type)
 			helper.Log(logrus.ErrorLevel, err.Error(), logCtx, "error_ticket_not_available")
 			return 0, err
