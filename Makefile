@@ -1,4 +1,6 @@
-.PHONY: cover coverage mock test 
+.PHONY: mock coverages/modules.txt cover coverage test gocovmerge
+
+all: cover coverage test
 
 mock:
 	mockgen -source=modules/event/query/query.go -destination=modules/event/query/mock/event_query_mockgen.go -package=mock
@@ -21,4 +23,4 @@ coverage:
 
 test: SHELL := /bin/bash
 test:
-	go test ./... -v -race -short | grep -v mock ; exit $${PIPESTATUS[0]}
+	go test ./... -v -race -short | grep -v mock ;
