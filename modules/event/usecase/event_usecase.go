@@ -50,7 +50,7 @@ func (impl *eventUseCaseImpl) CreateEvent(data *model.CreateEventReq) (*model.Ev
 		return nil, err
 	}
 
-	sd, err := time.Parse(data.StartDate.Format("20060102150405"), "2006-01-02 15:04:05")
+	sd, err := time.Parse(time.RFC3339, data.StartDate.Format(time.RFC3339))
 	if err != nil {
 		helper.Log(logrus.ErrorLevel, err.Error(), logCtx, "error_time_parse")
 		return nil, err
@@ -58,7 +58,7 @@ func (impl *eventUseCaseImpl) CreateEvent(data *model.CreateEventReq) (*model.Ev
 
 	data.StartDate = sd
 
-	ed, err := time.Parse(data.EndDate.Format("20060102150405"), "2006-01-02 15:04:05")
+	ed, err := time.Parse(time.RFC3339, data.EndDate.Format(time.RFC3339))
 	if err != nil {
 		helper.Log(logrus.ErrorLevel, err.Error(), logCtx, "error_time_parse")
 		return nil, err
