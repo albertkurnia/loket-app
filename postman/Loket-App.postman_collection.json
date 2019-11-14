@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "9f278e0d-4dcb-478c-8d4a-af46e4be3908",
+		"name": "Loket-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Location",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Gelora Bung Karno\",\n\t\"address\": \"Jl. Pintu Satu Senayan, Gelora\",\n\t\"province\": \"DKI Jakarta\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/location/create",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"location",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Location 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Gelora Bung Karno\",\n\t\"address\": \"Jl. Pintu Satu Senayan, Gelora\",\n\t\"province\": \"DKI Jakarta\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/api/location/create",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"location",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2019 11:29:52 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "333"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"code\": 201,\n    \"message\": \"Success\",\n    \"data\": {\n        \"location\": {\n            \"id\": 2,\n            \"name\": \"Gelora Bung Karno\",\n            \"address\": \"Jl. Pintu Satu Senayan, Gelora\",\n            \"province\": \"DKI Jakarta\",\n            \"createdAt\": \"2019-11-13T11:29:52.196923Z\",\n            \"updatedAt\": null,\n            \"deletedAt\": null\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\": \"GOLD\",\n\t\"quantity\": 100,\n\t\"price\": 20000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/event/ticket/create",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"event",
+						"ticket",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Ticket 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"GOLD\",\n\t\"quantity\": 100,\n\t\"price\": 20000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/api/event/ticket/create",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"event",
+								"ticket",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2019 11:38:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "279"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"code\": 201,\n    \"message\": \"Success\",\n    \"data\": {\n        \"ticket\": {\n            \"id\": 2,\n            \"type\": \"GOLD\",\n            \"quantity\": 100,\n            \"price\": 20000,\n            \"createdAt\": \"2019-11-13T11:38:01.219275Z\",\n            \"updatedAt\": null,\n            \"deletedAt\": null\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Event",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Timnas Indonesia vs Timnas Malaysia\",\n\t\"locationId\": 2,\n\t\"description\": \"Pertandingan Menuju Piala Dunia\",\n\t\"startDate\": \"2019-11-13T15:00:00+07:00\",\n\t\"endDate\": \"2019-11-13T17:00:00+07:00\",\n\t\"ticketId\": [2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/event/create",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Event 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Timnas Indonesia vs Timnas Malaysia\",\n\t\"locationId\": 1,\n\t\"description\": \"Pertandingan Menuju Piala Dunia\",\n\t\"startDate\": \"2019-11-13T15:00:00+07:00\",\n\t\"endDate\": \"2019-11-13T17:00:00+07:00\",\n\t\"ticketId\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/api/event/create",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"event",
+								"create"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2019 11:48:32 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "477"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 201,\n    \"code\": 201,\n    \"message\": \"Success\",\n    \"data\": {\n        \"event\": {\n            \"id\": 1,\n            \"title\": \"Timnas Indonesia vs Timnas Malaysia\",\n            \"locationId\": 1,\n            \"description\": \"Pertandingan Menuju Piala Dunia\",\n            \"startDate\": \"2019-11-13T15:00:00+07:00\",\n            \"endDate\": \"2019-11-13T17:00:00+07:00\",\n            \"ticketId\": [\n                1\n            ],\n            \"createdAt\": \"2019-11-13T11:48:32.468505Z\",\n            \"updatedAt\": null,\n            \"deletedAt\": null\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Purchase Ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"eventId\": 2,\n\t\"customerId\": 1,\n\t\"ticket\": [\n\t\t{\n\t\t\t\"ticketId\": 2,\n\t\t\t\"qt\": 10\n\t\t}\n\t]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/transaction/purchase",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"purchase"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Purchase Ticket 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"eventId\": 2,\n\t\"customerId\": 1,\n\t\"ticket\": [\n\t\t{\n\t\t\t\"ticketId\": 2,\n\t\t\t\"qt\": 10\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}/api/transaction/purchase",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"transaction",
+								"purchase"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2019 13:52:29 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "99"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"transactionId\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Info Event",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/api/event/get_info?id=2",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"event",
+						"get_info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Info Event 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/api/event/get_info?id=2",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"event",
+								"get_info"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Nov 2019 13:59:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1013"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"event\": {\n            \"id\": 2,\n            \"title\": \"Timnas Indonesia vs Timnas Malaysia\",\n            \"description\": \"Pertandingan Menuju Piala Dunia\",\n            \"startDate\": \"2019-11-13T08:00:00Z\",\n            \"endDate\": \"2019-11-13T10:00:00Z\",\n            \"tickets\": [\n                {\n                    \"id\": 2,\n                    \"type\": \"GOLD\",\n                    \"quantity\": 100,\n                    \"price\": 20000,\n                    \"createdAt\": \"2019-11-13T11:38:01.219275Z\",\n                    \"updatedAt\": \"2019-11-13T11:38:01.219275Z\",\n                    \"deletedAt\": null\n                }\n            ],\n            \"location\": {\n                \"id\": 2,\n                \"name\": \"Gelora Bung Karno\",\n                \"address\": \"Jl. Pintu Satu Senayan, Gelora\",\n                \"province\": \"DKI Jakarta\",\n                \"createdAt\": \"2019-11-13T11:29:52.196923Z\",\n                \"updatedAt\": \"2019-11-13T11:29:52.196923Z\",\n                \"deletedAt\": null\n            },\n            \"createdAt\": \"2019-11-13T12:27:26.616576Z\",\n            \"updatedAt\": \"2019-11-13T12:27:26.616576Z\",\n            \"deletedAt\": null\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Info Transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/api/transaction/get_info?id=1",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"transaction",
+						"get_info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Info Transaction 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/api/transaction/get_info?id=1",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"transaction",
+								"get_info"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 14 Nov 2019 03:23:39 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "441"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"code\": 200,\n    \"message\": \"Success\",\n    \"data\": {\n        \"transaction\": {\n            \"id\": 1,\n            \"eventId\": 2,\n            \"customerId\": 1,\n            \"ticket\": [\n                {\n                    \"ticketId\": 2,\n                    \"qt\": 10\n                },\n                {\n                    \"ticketId\": 2,\n                    \"qt\": 10\n                }\n            ],\n            \"createdAt\": \"2019-11-13T13:52:29.228325Z\",\n            \"updatedAt\": \"2019-11-13T13:52:29.228325Z\",\n            \"deletedAt\": null\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
