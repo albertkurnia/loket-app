@@ -40,7 +40,7 @@
 			},
 			"response": [
 				{
-					"name": "Create Location 200",
+					"name": "Create Location 201",
 					"originalRequest": {
 						"method": "POST",
 						"header": [
@@ -130,7 +130,7 @@
 			},
 			"response": [
 				{
-					"name": "Create Ticket 200",
+					"name": "Create Ticket 201",
 					"originalRequest": {
 						"method": "POST",
 						"header": [
@@ -220,7 +220,7 @@
 			},
 			"response": [
 				{
-					"name": "Create Event 200",
+					"name": "Create Event 201",
 					"originalRequest": {
 						"method": "POST",
 						"header": [
