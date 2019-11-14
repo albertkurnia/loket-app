@@ -14,21 +14,25 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// transactionServiceHTTPHandler - http handler struct for transaction service.
 type transactionServiceHTTPHandler struct {
 	transactionUseCase usecase.TransactionUseCase
 }
 
+// NewTransactionServiceHandler - function for initiating new transaction service handler.
 func NewTransactionServiceHandler(transactionUseCase usecase.TransactionUseCase) *transactionServiceHTTPHandler {
 	return &transactionServiceHTTPHandler{
 		transactionUseCase: transactionUseCase,
 	}
 }
 
+// Mount - mounting endpoint(s) by echo framework grouping.
 func (h *transactionServiceHTTPHandler) Mount(group *echo.Group) {
 	group.POST("/purchase", h.PurchaseTicket)
 	group.GET("/get_info", h.GetTransactionDetail)
 }
 
+// PurchaseTicket - http handler function for purchasing ticket.
 func (h *transactionServiceHTTPHandler) PurchaseTicket(c echo.Context) error {
 	logCtx := fmt.Sprintf("%T.PurchaseTicket", *h)
 
@@ -54,6 +58,7 @@ func (h *transactionServiceHTTPHandler) PurchaseTicket(c echo.Context) error {
 	return helper.NewResponse(http.StatusOK, http.StatusOK, "Success", data).WriteResponse(c)
 }
 
+// GetTransactionDetail - http handler function for getting transaction detail.
 func (h *transactionServiceHTTPHandler) GetTransactionDetail(c echo.Context) error {
 	logCtx := fmt.Sprintf("%T.GetTransactionDetail", *h)
 

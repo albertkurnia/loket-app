@@ -10,6 +10,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// CreateLocation - usecase for creating new location.
 func (impl *locationUseCaseImpl) CreateLocation(data *model.CreateLocationReq) (*model.Location, error) {
 	logCtx := fmt.Sprintf("%T.CreateLocation", *impl)
 

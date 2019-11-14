@@ -13,20 +13,24 @@ import (
 	"github.com/labstack/echo"
 )
 
+// locationServiceHTTPHandler - http handler struct for location service.
 type locationServiceHTTPHandler struct {
 	locationUseCase usecase.LocationUseCase
 }
 
+// NewLocationServiceHandler - function for initiating new location service handler.
 func NewLocationServiceHandler(locationUseCase usecase.LocationUseCase) *locationServiceHTTPHandler {
 	return &locationServiceHTTPHandler{
 		locationUseCase: locationUseCase,
 	}
 }
 
+// Mount - mounting endpoint(s) by echo framework grouping.
 func (h *locationServiceHTTPHandler) Mount(group *echo.Group) {
 	group.POST("/create", h.CreateLocation)
 }
 
+// CreateLocation - http handler function for creating location.
 func (h *locationServiceHTTPHandler) CreateLocation(c echo.Context) error {
 	logCtx := fmt.Sprintf("%T.CreateLocation", *h)
 

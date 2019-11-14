@@ -5,6 +5,7 @@ import (
 	"loket-app/modules/transaction/model"
 )
 
+// ValidatePurchaseTicketRequest - function for validating purchase ticket request.
 func ValidatePurchaseTicketRequest(payload *model.PurchaseTicketReq) error {
 
 	if payload == nil {

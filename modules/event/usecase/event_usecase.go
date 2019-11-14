@@ -11,6 +11,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// CreateTicket - usecase for creating new ticket.
 func (impl *eventUseCaseImpl) CreateTicket(data *model.CreateTicketReq) (*model.Ticket, error) {
 	logCtx := fmt.Sprintf("%T.CreateTicket", &impl)
 
@@ -21,8 +22,10 @@ func (impl *eventUseCaseImpl) CreateTicket(data *model.CreateTicketReq) (*model.
 
 	t, err := impl.EventQuery.LoadTicketByType(strings.ToUpper(strings.TrimSpace(data.Type)))
 	if err != nil {
-		helper.Log(logrus.ErrorLevel, err.Error(), logCtx, "error_load_ticket_by_type")
-		return nil, err
+		if err.Error() != "ticket not found" {
+			helper.Log(logrus.ErrorLevel, err.Error(), logCtx, "error_load_ticket_by_type")
+			return nil, err
+		}
 	}
 
 	if t != nil {
@@ -42,6 +45,7 @@ func (impl *eventUseCaseImpl) CreateTicket(data *model.CreateTicketReq) (*model.
 	return ticket, nil
 }
 
+// CreateEvent - usecase for creating new event.
 func (impl *eventUseCaseImpl) CreateEvent(data *model.CreateEventReq) (*model.Event, error) {
 	logCtx := fmt.Sprintf("%T.CreateEvent", &impl)
 
@@ -75,6 +79,7 @@ func (impl *eventUseCaseImpl) CreateEvent(data *model.CreateEventReq) (*model.Ev
 	return event, nil
 }
 
+// GetEventInformation - usecase for getting event information.
 func (impl *eventUseCaseImpl) GetEventInformation(eventID uint64) (*model.EventInformation, error) {
 	logCtx := fmt.Sprintf("%T.GetEventInformation", *impl)
 
@@ -89,6 +94,7 @@ func (impl *eventUseCaseImpl) GetEventInformation(eventID uint64) (*model.EventI
 	// construct response data
 	resp.ID = event.ID
 	resp.Title = event.Title
+	resp.Description = event.Description
 	resp.StartDate = event.StartDate
 	resp.EndDate = event.EndDate
 	resp.BaseTime = event.BaseTime
@@ -112,6 +118,7 @@ func (impl *eventUseCaseImpl) GetEventInformation(eventID uint64) (*model.EventI
 	return &resp, nil
 }
 
+// GetTicket - usecase for getting ticket
 func (impl *eventUseCaseImpl) GetTicket(ticketID uint64) (*model.Ticket, error) {
 	return impl.EventQuery.GetTicket(ticketID)
 }

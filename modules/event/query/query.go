@@ -5,11 +5,13 @@ import (
 	"loket-app/modules/event/model"
 )
 
+// eventQueryImpl - query implementation struct for event.
 type eventQueryImpl struct {
 	dbWrite *sql.DB
 	dbRead  *sql.DB
 }
 
+// NewEventQuery - function for initiate new event query.
 func NewEventQuery(dbWrite, dbRead *sql.DB) EventQuery {
 	return &eventQueryImpl{
 		dbWrite: dbWrite,
@@ -17,6 +19,7 @@ func NewEventQuery(dbWrite, dbRead *sql.DB) EventQuery {
 	}
 }
 
+// EventQuery - event query interface(s).
 type EventQuery interface {
 	InsertTicket(data *model.CreateTicketReq) (*model.Ticket, error)
 	LoadTicketByIDs(ids []uint64) ([]*model.Ticket, error)

@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// ValidateLocation - function for validating create location request.
 func ValidateLocation(payload *model.CreateLocationReq) error {
 
 	if payload == nil {

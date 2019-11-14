@@ -5,11 +5,13 @@ import (
 	"loket-app/modules/transaction/model"
 )
 
+// transactionQueryImpl - query implementation structure for transaction service.
 type transactionQueryImpl struct {
 	dbWrite *sql.DB
 	dbRead  *sql.DB
 }
 
+// NewTransactionQuery - function for initiating new transaction query.
 func NewTransactionQuery(dbWrite, dbRead *sql.DB) TransactionQuery {
 	return &transactionQueryImpl{
 		dbWrite: dbWrite,
@@ -17,6 +19,7 @@ func NewTransactionQuery(dbWrite, dbRead *sql.DB) TransactionQuery {
 	}
 }
 
+// TransactionQuery - transaction query interface(s)
 type TransactionQuery interface {
 	InsertTxTicketPurcashing(data *model.PurchaseTicketReq) (uint64, error)
 	GetTotalTicketPurchased(eventID, customerID, ticketID uint64) (uint64, error)

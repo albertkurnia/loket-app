@@ -14,22 +14,26 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// eventServiceHTTPHandler - http handler struct for event service.
 type eventServiceHTTPHandler struct {
 	eventUseCase usecase.EventUseCase
 }
 
+// NewEventServiceHandler - function for initiate new event service handler.
 func NewEventServiceHandler(eventUseCase usecase.EventUseCase) *eventServiceHTTPHandler {
 	return &eventServiceHTTPHandler{
 		eventUseCase: eventUseCase,
 	}
 }
 
+// Mount - mount endpoint(s) by echo framework grouping.
 func (h *eventServiceHTTPHandler) Mount(group *echo.Group) {
 	group.POST("/create", h.CreateEvent)
 	group.POST("/ticket/create", h.CreateTicket)
 	group.GET("/get_info", h.GetEventInfo)
 }
 
+// CreateEvent - http handler function for creating new event.
 func (h *eventServiceHTTPHandler) CreateEvent(c echo.Context) error {
 	logCtx := fmt.Sprintf("%T.CreateEvent", *h)
 
@@ -55,6 +59,7 @@ func (h *eventServiceHTTPHandler) CreateEvent(c echo.Context) error {
 	return helper.NewResponse(http.StatusCreated, http.StatusCreated, "Success", data).WriteResponse(c)
 }
 
+// CreateTicket - http handler function for creating new ticket.
 func (h *eventServiceHTTPHandler) CreateTicket(c echo.Context) error {
 	logCtx := fmt.Sprintf("%T.CreateTicket", *h)
 
@@ -80,6 +85,7 @@ func (h *eventServiceHTTPHandler) CreateTicket(c echo.Context) error {
 	return helper.NewResponse(http.StatusCreated, http.StatusCreated, "Success", data).WriteResponse(c)
 }
 
+// GetEventInfo - http handler function for getting event information by event id.
 func (h *eventServiceHTTPHandler) GetEventInfo(c echo.Context) error {
 	logCtx := fmt.Sprintf("%T.GetEventInfo", *h)
 

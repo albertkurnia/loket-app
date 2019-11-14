@@ -11,11 +11,13 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+// transactionUseCaseImpl - usecase implementation structure for transaction service.
 type transactionUseCaseImpl struct {
 	TransactionQuery query.TransactionQuery
 	EventUsecase     eventUC.EventUseCase
 }
 
+// NewTransactionUseCase - function for initiating new transcation usecase.
 func NewTransactionUseCase(txQuery query.TransactionQuery, eventUc eventUC.EventUseCase) TransactionUseCase {
 	return &transactionUseCaseImpl{
 		TransactionQuery: txQuery,
@@ -23,11 +25,13 @@ func NewTransactionUseCase(txQuery query.TransactionQuery, eventUc eventUC.Event
 	}
 }
 
+// TransactionUseCase - transaction usecase interface(s).
 type TransactionUseCase interface {
 	PurchaseTicket(data *model.PurchaseTicketReq) (uint64, error)
 	GetTransactionDetail(txId uint64) (*model.Transaction, error)
 }
 
+// PurchaseTicket - usecase for purchasing ticket.
 func (impl *transactionUseCaseImpl) PurchaseTicket(data *model.PurchaseTicketReq) (uint64, error) {
 	logCtx := fmt.Sprintf("%T.PurchaseTicket", *impl)
 
@@ -81,6 +85,7 @@ func (impl *transactionUseCaseImpl) PurchaseTicket(data *model.PurchaseTicketReq
 	return txID, nil
 }
 
+// GetTransactionDetail - usecase for getting transaction detail.
 func (impl *transactionUseCaseImpl) GetTransactionDetail(txId uint64) (*model.Transaction, error) {
 	return impl.TransactionQuery.LoadTransactionByID(txId)
 }

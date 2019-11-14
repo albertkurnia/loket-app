@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// ValidateCreateTicket - function for validating create ticket request.
 func ValidateCreateTicket(payload *model.CreateTicketReq) error {
 
 	if payload == nil {
@@ -31,6 +32,7 @@ func ValidateCreateTicket(payload *model.CreateTicketReq) error {
 	return nil
 }
 
+// ValidateCreateEvent - function for validating create event request.
 func ValidateCreateEvent(payload *model.CreateEventReq) error {
 	if payload == nil {
 		err := errors.New("invalid payload")
