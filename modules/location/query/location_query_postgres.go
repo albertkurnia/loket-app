@@ -1,6 +1,8 @@
 package query
 
 import (
+	"database/sql"
+	"errors"
 	"fmt"
 	"loket-app/helper"
 	"loket-app/modules/location/model"
@@ -35,6 +37,10 @@ func (lq *locationQueryImpl) InsertLocation(data *model.CreateLocationReq) (*mod
 		return nil, err
 	}
 
+	resp.Name = data.Name
+	resp.Address = data.Address
+	resp.Province = data.Province
+
 	return &resp, nil
 }
 
@@ -58,6 +64,11 @@ func (lq *locationQueryImpl) LoadLocationByID(id uint64) (*model.Location, error
 		&resp.ID, &resp.Name, &resp.Address,
 		&resp.Province, &resp.CreatedAt, &resp.UpdatedAt,
 		&resp.DeletedAt); err != nil {
+		if err == sql.ErrNoRows {
+			err := errors.New("location not found")
+			helper.Log(log.ErrorLevel, err.Error(), logCtx, "error_location_not_found")
+			return nil, err
+		}
 		helper.Log(log.ErrorLevel, err.Error(), logCtx, "error_exec_database")
 		return nil, err
 	}
